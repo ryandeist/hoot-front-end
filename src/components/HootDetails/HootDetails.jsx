@@ -45,7 +45,6 @@ const HootDetails = (props) => {
                 <p>{hoot.text}</p>
             </section>
             <section>
-
                 <h2>Comments</h2>
                 <CommentForm handleAddComment={handleAddComment}/>
 
