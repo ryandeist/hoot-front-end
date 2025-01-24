@@ -6,12 +6,21 @@ import { UserContext } from '../../contexts/UserContext'
 
 const HootDetails = (props) => {
     const { user } = useContext(UserContext);
-    const { hootId } = useParams();
+    const { hootId, commentId } = useParams();
     const [hoot, setHoot] = useState(null);
 
     const handleAddComment = async (commentFormData) => {
         const newComment = await hootService.createComment(hootId, commentFormData);
         setHoot({ ...hoot, comments: [...hoot.comments, newComment] });
+    };
+
+    const handleDeleteComment = async (commentId) => {
+        const deletedComment = await hootService.deleteComment(hootId, commentId);
+        console.log(commentId, deletedComment);
+        setHoot({
+            ...hoot,
+            comments: hoot.comments.filter((comment) => comment._id !== commentId),
+        });
     };
 
     useEffect(() => {
@@ -23,7 +32,7 @@ const HootDetails = (props) => {
     }, [hootId]);
 
     if (!hoot) return <main>Loading...</main>;
-
+    // console.log(hoot)
 
     return (
         <main>
@@ -57,6 +66,12 @@ const HootDetails = (props) => {
                                 {`${comment.author.username} posted on
                 ${new Date(comment.createdAt).toLocaleDateString()}`}
                             </p>
+                            {comment.author?._id === user._id && (
+                            <>
+                            <Link to={`/hoots/${hootId}/comments/${commentId}/edit`}>Edit</Link>
+                            <button onClick={() => handleDeleteComment(comment._id)}>Delete Comment</button>
+                            </>
+                            )}
                         </header>
                         <p>{comment.text}</p>
                     </article>
