@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { useParams, Link } from "react-router";
 import { useState, useEffect, useContext } from 'react';
 import * as hootService from '../../services/hootService';
 import CommentForm from '../CommentForm/CommentForm';
@@ -21,7 +21,6 @@ const HootDetails = (props) => {
         };
         fetchHoot();
     }, [hootId]);
-    console.log('hoot state', hoot)
 
     if (!hoot) return <main>Loading...</main>;
 
@@ -38,6 +37,7 @@ const HootDetails = (props) => {
                     </p>
                     {hoot.author?._id === user._id && (
                         <>
+                        <Link to={`/hoots/${hootId}/edit`}>Edit</Link>
                         <button onClick={() => props.handleDeleteHoot(hootId)}>Delete</button>
                         </>
                     )} 
