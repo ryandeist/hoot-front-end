@@ -1,4 +1,3 @@
-// src/components/HootForm/HootForm.jsx
 
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
