@@ -27,8 +27,8 @@ const HootForm = (props) => {
 
     useEffect(() => {
         const fetchHoot = async () => {
-            const hootData = await hootService.show(hootId);
-            setFormData(hootData);
+        const hootData = await hootService.show(hootId);
+        setFormData(hootData);
         };
         if (hootId) fetchHoot();
 

@@ -36,7 +36,7 @@ const App = () => {
     const updatedHoot = await hootService.update(hootId, hootFormData);
     setHoots(hoots.map((hoot) => (hootId === hoot._id ? updatedHoot : hoot)));
     navigate(`/hoots/${hootId}`);
-  }
+  };
 
   useEffect(() => {
     const fetchAllHoots = async () => {
