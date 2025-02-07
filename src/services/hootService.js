@@ -68,7 +68,7 @@ const deleteComment = async (hootId, commentId) => {
     } catch (error) {
         console.log(error);
     }
-}
+};
 
 const deleteHoot = async (hootId) => {
     try {
@@ -82,7 +82,7 @@ const deleteHoot = async (hootId) => {
     } catch (error) {
         console.log(error);
     }
-}
+};
 
 const update = async (hootId, hootFormData) => {
     try {

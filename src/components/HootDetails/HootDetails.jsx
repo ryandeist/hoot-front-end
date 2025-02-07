@@ -30,8 +30,6 @@ const HootDetails = (props) => {
         fetchHoot();
     }, [hootId]);
 
-    console.log(hoot)
-
     if (!hoot) return <main>Loading...</main>;
 
     return (
