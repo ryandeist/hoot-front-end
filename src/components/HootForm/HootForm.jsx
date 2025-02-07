@@ -17,6 +17,7 @@ const HootForm = (props) => {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
+
         if (hootId) {
             props.handleUpdateHoot(hootId, formData);
         } else {
