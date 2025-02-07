@@ -27,7 +27,7 @@ const Dashboard = () => {
         This is the dashboard page where you can see a list of all the users.
       </p>
       <ul>
-        {users.map(user => (
+        {users.map((user) => (
           <li key={user._id}>{user.username}</li>
         ))}
       </ul>
