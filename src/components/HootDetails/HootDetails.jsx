@@ -30,6 +30,8 @@ const HootDetails = (props) => {
         fetchHoot();
     }, [hootId]);
 
+    console.log(hoot)
+
     if (!hoot) return <main>Loading...</main>;
 
     return (
@@ -44,16 +46,16 @@ const HootDetails = (props) => {
                     </p>
                     {hoot.author?._id === user._id && (
                         <>
-                        <Link to={`/hoots/${hootId}/edit`}>Edit</Link>
-                        <button onClick={() => props.handleDeleteHoot(hootId)}>Delete</button>
+                            <Link to={`/hoots/${hootId}/edit`}>Edit</Link>
+                            <button onClick={() => props.handleDeleteHoot(hootId)}>Delete</button>
                         </>
-                    )} 
+                    )}
                 </header>
                 <p>{hoot.text}</p>
             </section>
             <section>
                 <h2>Comments</h2>
-                <CommentForm handleAddComment={handleAddComment}/>
+                <CommentForm handleAddComment={handleAddComment} />
 
                 {!hoot.comments.length && <p>There are no comments.</p>}
 
@@ -65,10 +67,10 @@ const HootDetails = (props) => {
                 ${new Date(comment.createdAt).toLocaleDateString()}`}
                             </p>
                             {comment.author?._id === user._id && (
-                            <>
-                            <Link to={`/hoots/${hootId}/comments/${commentId}/edit`}>Edit</Link>
-                            <button onClick={() => handleDeleteComment(comment._id)}>Delete Comment</button>
-                            </>
+                                <>
+                                    <Link to={`/hoots/${hootId}/comments/${commentId}/edit`}>Edit</Link>
+                                    <button onClick={() => handleDeleteComment(comment._id)}>Delete Comment</button>
+                                </>
                             )}
                         </header>
                         <p>{comment.text}</p>
@@ -77,7 +79,6 @@ const HootDetails = (props) => {
             </section>
         </main>
     );
-
 };
 
 export default HootDetails;
