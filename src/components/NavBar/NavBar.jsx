@@ -3,6 +3,9 @@ import { Link } from 'react-router';
 
 import { UserContext } from '../../contexts/UserContext';
 
+import styles from './NavBar.module.css';
+import Logo from '../../assets/images/logo.svg';
+
 const NavBar = () => {
   const { user, setUser } = useContext(UserContext);
 
@@ -12,7 +15,8 @@ const NavBar = () => {
   };
 
   return (
-    <nav>
+    <nav className={styles.container}>
+      <Link to='/'><img src={Logo} alt="a cute owl logo" /></Link>
       {user ? (
         <ul>
           <li><Link to='/'>HOME</Link></li>
