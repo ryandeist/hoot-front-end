@@ -6,7 +6,7 @@ import { UserContext } from '../../contexts/UserContext'
 
 const HootDetails = (props) => {
     const { user } = useContext(UserContext);
-    const { hootId, commentId } = useParams();
+    const { hootId  } = useParams();
     const [hoot, setHoot] = useState(null);
 
     const handleAddComment = async (commentFormData) => {
@@ -66,7 +66,7 @@ const HootDetails = (props) => {
                             </p>
                             {comment.author?._id === user._id && (
                                 <>
-                                    <Link to={`/hoots/${hootId}/comments/${commentId}/edit`}>Edit</Link>
+                                    <Link to={`/hoots/${hootId}/comments/${comment._id}/edit`}>Edit Comment</Link>
                                     <button onClick={() => handleDeleteComment(comment._id)}>Delete Comment</button>
                                 </>
                             )}

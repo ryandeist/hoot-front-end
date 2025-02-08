@@ -1,7 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router';
+
+import * as hootService from '../../services/hootService';
 
 const CommentForm = (props) => {
     const [formData, setFormData] = useState({ text: '' });
+
+    const { hootId, commentId } = useParams();
+
+    const navigate = useNavigate();
 
     const handleChange = (evt) => {
         setFormData({ ...formData, [evt.target.name]: evt.target.value });
@@ -9,9 +16,24 @@ const CommentForm = (props) => {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        props.handleAddComment(formData);
+
+        if (hootId && commentId) {
+            hootService.updateComment(hootId, commentId, formData);
+            navigate(`/hoots/${hootId}`);
+        } else {
+            props.handleAddComment(formData);
+        }
         setFormData({ text: '' });
     };
+
+    useEffect(() => {
+        const fetchHoot = async () => {
+            const hootData = await hootService.show(hootId);
+            // finc the comment in fetched hoot data
+            setFormData(hootData.comments.find((comment) => comment._id === commentId));
+        };
+        if (hootId && commentId) fetchHoot();
+    }, [hootId, commentId]);
 
     return (
         <form onSubmit={handleSubmit}>
