@@ -1,8 +1,11 @@
+// Hook Imports
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router';
 
+// Service Imports
 import * as hootService from '../../services/hootService';
 
+// Style Imports
 import styles from './CommentForm.module.css';
 
 const CommentForm = (props) => {
@@ -36,7 +39,7 @@ const CommentForm = (props) => {
         };
         if (hootId && commentId) fetchHoot();
     }, [hootId, commentId]);
-    
+
     if (hootId && commentId) return (
         <main className={styles.container}>
             <form onSubmit={handleSubmit}>

@@ -1,8 +1,11 @@
+// Hook Imports
 import { useContext } from 'react';
 import { Link } from 'react-router';
 
+// Context Imports
 import { UserContext } from '../../contexts/UserContext';
 
+// Style Imports
 import styles from './NavBar.module.css';
 import Logo from '../../assets/images/logo.svg';
 

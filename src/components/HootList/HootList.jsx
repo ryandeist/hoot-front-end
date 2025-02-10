@@ -1,5 +1,7 @@
+// Hook Imports
 import { Link } from 'react-router';
 
+// Style Imports
 import styles from './HootList.module.css';
 
 const HootList = (props) => {

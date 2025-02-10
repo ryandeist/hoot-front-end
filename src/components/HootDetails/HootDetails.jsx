@@ -1,9 +1,18 @@
+// Hook Imports
 import { useParams, Link } from "react-router";
 import { useState, useEffect, useContext } from 'react';
+
+// Service Function Imports
 import * as hootService from '../../services/hootService';
+
+// Component Imports
 import CommentForm from '../CommentForm/CommentForm';
+import Loading from '../Loading/Loading';
+
+// Context Import
 import { UserContext } from '../../contexts/UserContext';
 
+// Style Imports
 import styles from './HootDetails.module.css';
 
 const HootDetails = (props) => {
@@ -32,7 +41,7 @@ const HootDetails = (props) => {
         fetchHoot();
     }, [hootId]);
 
-    if (!hoot) return <main>Loading...</main>;
+    if (!hoot) return <Loading />;
 
     return (
         <main className={styles.container}>

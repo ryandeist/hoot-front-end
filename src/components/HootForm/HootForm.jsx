@@ -1,8 +1,11 @@
-
+// Hook Imports
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
+
+// Service Imports
 import * as hootService from '../../services/hootService';
 
+// Style Imports
 import styles from './HootForm.module.css'
 
 const HootForm = (props) => {

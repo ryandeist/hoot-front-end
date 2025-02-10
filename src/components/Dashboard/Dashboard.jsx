@@ -1,5 +1,7 @@
+// Hook Imports
 import { useContext } from 'react';
 
+// Context Imports
 import { UserContext } from '../../contexts/UserContext';
 
 

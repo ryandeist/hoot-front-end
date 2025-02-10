@@ -1,10 +1,14 @@
+// Hook Imports
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router';
 
+// Service Imports
 import { signIn } from '../../services/authService';
 
+// Context Imports
 import { UserContext } from '../../contexts/UserContext';
 
+// Style Imports
 import LogInIcon from '../../assets/images/login.svg';
 import styles from './SignInForm.module.css';
 

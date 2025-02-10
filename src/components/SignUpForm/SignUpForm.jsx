@@ -1,10 +1,14 @@
+// Hook Imports
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router';
 
+// Service Imports
 import { signUp } from '../../services/authService';
 
+// Context Imports
 import { UserContext } from '../../contexts/UserContext';
 
+// Style Imports
 import SignUpIcon from '../../assets/images/signup.svg';
 import styles from './SignUpForm.module.css';
 
