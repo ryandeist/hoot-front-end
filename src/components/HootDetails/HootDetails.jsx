@@ -8,6 +8,7 @@ import * as hootService from '../../services/hootService';
 // Component Imports
 import CommentForm from '../CommentForm/CommentForm';
 import Loading from '../Loading/Loading';
+import Icon from '../Icon/Icon';
 
 // Context Import
 import { UserContext } from '../../contexts/UserContext';
@@ -56,8 +57,8 @@ const HootDetails = (props) => {
                         </p>
                         {hoot.author?._id === user._id && (
                             <>
-                                <Link to={`/hoots/${hootId}/edit`}>Edit</Link>
-                                <button onClick={() => props.handleDeleteHoot(hootId)}>Delete</button>
+                                <Link to={`/hoots/${hootId}/edit`}><Icon category='Edit' /></Link>
+                                <button onClick={() => props.handleDeleteHoot(hootId)}><Icon category='Trash' /></button>
                             </>
                         )}
                     </div>
@@ -80,8 +81,8 @@ const HootDetails = (props) => {
                                 </p>
                                 {comment.author?._id === user._id && (
                                     <>
-                                        <Link to={`/hoots/${hootId}/comments/${comment._id}/edit`}>Edit Comment</Link>
-                                        <button onClick={() => handleDeleteComment(comment._id)}>Delete Comment</button>
+                                        <Link to={`/hoots/${hootId}/comments/${comment._id}/edit`}><Icon category='Edit' /></Link>
+                                        <button onClick={() => handleDeleteComment(comment._id)}><Icon category='Trash' /></button>
                                     </>
                                 )}
                             </div>

@@ -5,6 +5,9 @@ import { useParams, useNavigate } from 'react-router';
 // Service Imports
 import * as hootService from '../../services/hootService';
 
+// Component Imports 
+import Icon from '../Icon/Icon';
+
 // Style Imports
 import styles from './CommentForm.module.css';
 
@@ -67,7 +70,7 @@ const CommentForm = (props) => {
                 value={formData.text}
                 onChange={handleChange}
             />
-            <button type='submit'>SUBMIT</button>
+            <button type='submit'><Icon category='Create' /></button>
         </form>
     );
 };
